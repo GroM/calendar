@@ -1,11 +1,13 @@
 <?php
 
 namespace Drupal\calendar\Template;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFilter;
 
 /**
  * A class providing Calendar Twig extensions.
  */
-class TwigExtension extends \Twig_Extension {
+class TwigExtension extends AbstractExtension {
 
   /**
    * {@inheritdoc}
@@ -19,7 +21,7 @@ class TwigExtension extends \Twig_Extension {
    */
   public function getFilters() {
     return [
-      new \Twig_SimpleFilter('calendar_stripe', [$this, 'getCalendarStripe'], ['is_safe' => ['html']]),
+      new TwigFilter('calendar_stripe', [$this, 'getCalendarStripe'], ['is_safe' => ['html']]),
     ];
   }
 
